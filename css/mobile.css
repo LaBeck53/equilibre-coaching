@@ -1,0 +1,303 @@
+/* =============================================
+   EquiLibre Coaching — Mobile Overrides
+   Corrige tous les inline styles non-responsives
+   ============================================= */
+
+/* ---- Empêche le scroll horizontal global ---- */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* ---- Images & médias fluides ---- */
+img, svg, video, iframe, embed {
+  max-width: 100%;
+}
+
+/* ---- Boutons : pas de dépassement ---- */
+.btn {
+  max-width: 100%;
+  word-break: break-word;
+  white-space: normal;
+  text-align: center;
+}
+
+/* ============================================
+   TABLETTE — max 1024px
+   ============================================ */
+@media (max-width: 1024px) {
+
+  /* Grids inline 3 et 4 colonnes → 2 colonnes */
+  [style*="grid-template-columns:repeat(3"],
+  [style*="grid-template-columns: repeat(3"],
+  [style*="grid-template-columns:repeat(4"],
+  [style*="grid-template-columns: repeat(4"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+
+  /* Hero : gap réduit */
+  [style*="grid-template-columns:1fr 1fr"],
+  [style*="grid-template-columns: 1fr 1fr"] {
+    gap: 40px !important;
+  }
+
+}
+
+/* ============================================
+   MOBILE — max 768px
+   ============================================ */
+@media (max-width: 768px) {
+
+  /* ---- Reset paddings section ---- */
+  section[style*="padding"] {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* ---- Toutes les grids inline → 1 colonne ---- */
+  [style*="grid-template-columns:1fr 1fr"],
+  [style*="grid-template-columns: 1fr 1fr"],
+  [style*="grid-template-columns:1fr 2fr"],
+  [style*="grid-template-columns: 1fr 2fr"],
+  [style*="grid-template-columns:2fr 1fr"],
+  [style*="grid-template-columns: 2fr 1fr"],
+  [style*="grid-template-columns:1.5fr 1fr"],
+  [style*="grid-template-columns: 1.5fr 1fr"],
+  [style*="grid-template-columns:repeat(2"],
+  [style*="grid-template-columns: repeat(2"],
+  [style*="grid-template-columns:repeat(3"],
+  [style*="grid-template-columns: repeat(3"],
+  [style*="grid-template-columns:repeat(4"],
+  [style*="grid-template-columns: repeat(4"] {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  /* ---- Hero principal (index.html) ---- */
+  section[style*="min-height:100vh"],
+  section[style*="min-height: 100vh"] {
+    padding: 120px 20px 60px !important;
+    min-height: auto !important;
+  }
+
+  /* Panneau droit du hero → masqué sur mobile */
+  section[style*="min-height:100vh"] .container > div:last-child,
+  section[style*="min-height: 100vh"] .container > div:last-child {
+    display: none !important;
+  }
+
+  /* Container hero → 1 colonne */
+  section[style*="min-height:100vh"] .container,
+  section[style*="min-height: 100vh"] .container {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+
+  /* ---- Stats mini dans le hero ---- */
+  [style*="display:flex"][style*="gap:32px"],
+  [style*="display: flex"][style*="gap: 32px"] {
+    gap: 20px !important;
+    flex-wrap: wrap !important;
+  }
+
+  /* ---- Gap trop larges sur flex rows ---- */
+  [style*="gap:64px"] { gap: 24px !important; }
+  [style*="gap:72px"] { gap: 24px !important; }
+  [style*="gap:48px"] { gap: 20px !important; }
+
+  /* ---- Padding internes trop larges ---- */
+  [style*="padding:40px"] { padding: 24px !important; }
+  [style*="padding: 40px"] { padding: 24px !important; }
+  [style*="padding:48px"] { padding: 24px !important; }
+  [style*="padding: 48px"] { padding: 24px !important; }
+
+  /* ---- Boutons ---- */
+  .btn-lg {
+    padding: 14px 24px !important;
+    font-size: 0.95rem !important;
+  }
+
+  .btn-group {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  .btn-group .btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* ---- CTA Banner ---- */
+  .cta-banner {
+    padding: 40px 20px !important;
+    border-radius: 16px !important;
+  }
+
+  .cta-banner .btn-group {
+    justify-content: center !important;
+  }
+
+  /* ---- Stats grid ---- */
+  .stats-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* ---- Page hero ---- */
+  .page-hero {
+    padding: 130px 20px 60px !important;
+  }
+
+  /* ---- Section header ---- */
+  .section-header h2 {
+    font-size: 1.5rem !important;
+  }
+
+  /* ---- Cards ---- */
+  .card {
+    padding: 24px !important;
+  }
+
+  /* ---- Timeline (a-propos) ---- */
+  [style*="position:relative;padding-left:24px"],
+  [style*="position: relative; padding-left: 24px"] {
+    padding-left: 20px !important;
+  }
+
+  /* ---- Process steps ---- */
+  .process-step { gap: 16px !important; }
+
+  /* ---- Formulaire ---- */
+  .form-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ---- Footer ---- */
+  .footer-main {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+    padding: 40px 20px !important;
+  }
+
+  /* ---- Articles blog ---- */
+  .article-content {
+    font-size: 0.97rem !important;
+  }
+
+  /* ---- Sections avec padding inline trop fort ---- */
+  section[style*="padding:0 24px"],
+  section[style*="padding: 0 24px"] {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* ---- Feature grid ---- */
+  .feature-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ---- Blog cards grid ---- */
+  .grid-3.blog-grid,
+  .grid-3 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ---- Zones géo flex ---- */
+  .zones-grid {
+    gap: 8px !important;
+  }
+
+  /* ---- Navigation logo ---- */
+  .nav-logo-main {
+    font-size: 1.1rem !important;
+  }
+
+  /* ---- Navbar inner ---- */
+  .navbar-inner {
+    height: 68px !important;
+  }
+
+  /* ---- Mobile nav ---- */
+  .mobile-nav {
+    top: 68px !important;
+  }
+
+}
+
+/* ============================================
+   PETIT MOBILE — max 480px
+   ============================================ */
+@media (max-width: 480px) {
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .stat-number {
+    font-size: 2rem !important;
+  }
+
+  h1 {
+    font-size: 1.75rem !important;
+    line-height: 1.2 !important;
+  }
+
+  h2 {
+    font-size: 1.4rem !important;
+  }
+
+  h3 {
+    font-size: 1.15rem !important;
+  }
+
+  /* Hero : label + titre ajustés */
+  .section-label {
+    font-size: 0.7rem !important;
+  }
+
+  /* Bouton full width sur très petit écran */
+  .btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* Padding global réduit */
+  .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* Cards plus serrées */
+  .card {
+    padding: 20px !important;
+  }
+
+  .testimonial-card {
+    padding: 24px 20px !important;
+  }
+
+  /* Blog cards meta */
+  .blog-card-meta {
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+  }
+
+  /* CTA banner */
+  .cta-banner {
+    padding: 32px 16px !important;
+    border-radius: 12px !important;
+  }
+
+  /* FAQ */
+  .faq-question {
+    padding: 16px !important;
+    font-size: 0.9rem !important;
+  }
+
+  /* Footer bottom */
+  .footer-legal {
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+
+}
