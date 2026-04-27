@@ -1,6 +1,6 @@
 # EquiLibre Coaching — Documentation Projet
 
-> Version 1.0 — Avril 2026  
+> Version 1.2 — Avril 2026  
 > Développé par : JulienBechkri  
 > Client : Coach indépendante (profil RH, Normandie/Paris)
 
@@ -54,7 +54,7 @@
 - **Scroll reveal** : animations d'apparition au scroll (IntersectionObserver)
 - **Compteurs animés** : statistiques (15 ans, 200 managers…)
 - **FAQ Accordion** : pages coaching et équicoaching
-- **Responsive / Mobile first** : breakpoints 480 / 768 / 1024px
+- **Responsive / Mobile first** : breakpoints 480 / 768 / 1024px — géré via `css/style.css` + `css/mobile.css` (overrides des inline styles)
 
 ### Fonctionnalités non incluses (à prévoir v2)
 - CMS (Netlify CMS, Decap, ou autre) pour gestion des articles de blog
@@ -84,7 +84,8 @@ equilibre-coaching/
 ├── contact.html                ← Formulaire + Calendly + carte zones
 │
 ├── css/
-│   └── style.css               ← Design system complet (variables, composants)
+│   ├── style.css               ← Design system complet (variables, composants)
+│   └── mobile.css              ← Overrides responsive (inline styles, grids, boutons)
 │
 ├── js/
 │   └── main.js                 ← Interactions (navbar, FAQ, counters, reveal)
@@ -92,7 +93,7 @@ equilibre-coaching/
 ├── images/                     ← Dossier vide (photos à ajouter)
 │
 ├── STRATEGIE-SEO.md            ← Plan SEO 3 mois + 40 mots-clés
-└── DOCUMENTATION.md            ← Ce fichier
+└── DOCUMENTATION.md            ← Ce fichier (v1.2)
 ```
 
 ### Dépendances externes
@@ -272,9 +273,23 @@ Pour utiliser un domaine type `equilibre-coaching.fr` :
 - Pas de mentions légales complètes
 - Pas de politique de cookies / RGPD
 
+### Décisions UX notables
+- **Panneau hero droit masqué sur mobile** (`display:none`) : le bloc "Ce que vous allez obtenir" est caché sur mobile pour que le CTA reste visible sans scroll. Décision validée par le client (avril 2026). À reconsidérer en v2 si on veut enrichir l'argumentaire mobile.
+- **css/mobile.css séparé** : les inline styles du HTML ne peuvent pas être overridés par des media queries classiques sans `!important`. Le fichier `mobile.css` centralise tous ces overrides. Ne pas mettre ces règles dans `style.css` pour garder la lisibilité.
+
 ---
 
-## 9. Prochaines étapes
+## 9. Historique des versions
+
+| Version | Date | Changements |
+|---------|------|-------------|
+| v1.0 | Avril 2026 | Création initiale — 12 pages, CSS, JS, 3 articles |
+| v1.1 | Avril 2026 | Ajout `DOCUMENTATION.md` |
+| v1.2 | Avril 2026 | Fix responsive mobile — `css/mobile.css` injecté dans les 12 pages |
+
+---
+
+## 10. Prochaines étapes
 
 ### Court terme (avant partage client)
 - [ ] Remplacer tous les placeholders `[Prénom NOM]`, email, tél, Calendly
@@ -299,4 +314,4 @@ Pour utiliser un domaine type `equilibre-coaching.fr` :
 
 ---
 
-*Documentation générée lors du développement initial du site EquiLibre Coaching.*
+*Dernière mise à jour : avril 2026 — v1.2*
